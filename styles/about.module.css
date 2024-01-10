@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 .first_section {
   /* background-color: #F4F4F4; */
   background-color: #1a1b1a;
-  height: 91vh;
+  height: 37vw;
   margin: 0px;
   padding-top: 10vh;
 }
 
 .about {
-  width: 35vw;
-  height: 50vh;
+  width: 55vw;
   margin: auto;
-  padding: 20px;
+  padding-top: 7vh;
   text-align: center;
   color: #a3a4a3;
 }
@@ -28,7 +28,7 @@
 
 .about hr {
   margin-top: 30px;
-  width: 30vw;
+  width: 55vw;
 }
 
 .desc {
@@ -50,22 +50,24 @@
 
 .intro {
   background-color: white;
-  height: 60vh;
+  height: auto;
   width: 70vw;
   margin: auto;
   float: right;
   position: absolute;
-  bottom: -30vh;
+  top: 30vw;
   left: 15vw;
   padding: 30px;
   display: flex;
   column-gap: 0%;
   border-radius: 20px;
 }
+
 .player {
   border-radius: 20px;
   overflow: hidden;
   width: 80%;
+  height: 320px;
 }
 
 .intro_text {
@@ -99,135 +101,71 @@
   bottom: 3px;
 }
 
+/* Second Section */
 .second_section {
+  padding-top: 23vw;
   background-color: #f4f4f4;
-  height: 129.5vh;
-  width: 99.92;
   color: #1a1b1a;
-  padding-top: 35vh;
+  width: 100%;
+  height: auto;
+  /* Center the text */
 }
 
-.second_section img {
-  transition: 0.5s ease;
-}
-
-.second_section img:hover {
-  transform: rotate(-10deg) scale(0.9, 0.9);
-  transition: 0.5s ease;
-}
-
-.second_section h1,
-.third_section h1,
-.fourth_section h1 {
-  font-size: 4vw;
-  font-family: "Outfit";
-  font-weight: 600;
-  padding-bottom: 10px;
-  border-bottom-style: solid;
-  border-bottom-width: 3.1px;
-  width: fit-content;
-  margin: auto;
-}
-
+/* Third Section */
 .third_section {
+  /* padding-top: 5vw; */
   background-color: #1a1b1a;
-  height: 100vh;
-  width: 99.92;
-  padding-top: 10vh;
   color: #f4f4f4;
-}
-
-.third_section img {
-  transition: 0.5s ease;
-}
-
-.third_section img:hover {
-  transform: rotate(10deg) scale(0.9, 0.9);
-  transition: 0.5s ease;
-}
-
-.fourth_section {
-  background-color: #f4f4f4;
-  height: 100vh;
-  width: 99.92;
-  color: #1a1b1a;
-  padding-top: 10vh;
-}
-
-.fourth_section img {
-  transition: 0.5s ease;
-}
-
-.fourth_section img:hover {
-  transform: rotate(-10deg) scale(0.9, 0.9);
-  transition: 0.5s ease;
+  width: 100%;
+  /* Center the text */
+  height: auto;
 }
 
 .fifth_section {
-  background-color: #1a1b1a;
-  color: #f4f4f4;
-  height: 48vw;
+  background-color: #ffffff;
+  color: #000000;
+  height: 100%;
   width: 99.92;
-  padding-top: 5vh;
 }
 
-.fifth_section h1 {
-  font-family: "Outfit";
-  font-weight: 600;
-  font-size: 4vw;
-  padding-bottom: 10px;
-  border-bottom-style: solid;
-  border-bottom-width: 3.1px;
-  width: fit-content;
-  margin: auto;
+.heading_box {
+  padding-top: 5vw;
+  padding-left: 11vw;
+}
+
+.fifth_section_heading {
+  font-size: calc(1.5rem + 1vw);
+  border-top: 5px solid transparent;
+  border-image: linear-gradient(to right, rgb(242, 84, 2) 4%, transparent 4%) 1;
 }
 
 .helm {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 10vw;
+  gap: 50px;
+  /* Adjust as needed */
   margin: 5vw auto;
   width: min-content;
 }
 
-.helm img {
-  width: 20vw;
+.helm2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  /* Adjust as needed */
+  margin: 5vw auto;
+  width: min-content;
 }
 
-.content {
-  margin: 20px;
-  margin-top: 60px;
-  display: flex;
-  column-gap: 40px;
-  height: 60vh;
-  font-family: "Poppins";
-}
-
-.left {
-  width: 40%;
-  display: flex;
-  align-items: center;
-}
-.left img {
-  width: 100%;
-}
-.right {
-  width: 70%;
-  font-size: 1.5vw;
-  line-height: 3vw;
-  padding: 30px;
-  display: flex;
-  align-items: center;
-  font-family: "Poppins";
-}
-
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   .about {
-    width: 50vw;
+    width: 70vw;
   }
+
   .about hr {
-    width: 46.4vw;
+    width: 67vw;
   }
+
   .youtube_btn {
     font-size: 1.5vw;
   }
@@ -237,71 +175,51 @@
   }
 }
 
-@media (max-width: 840px) {
+@media (min-width: 957px) and (max-width: 1200px) {
+  .intro {
+    top: 35vw;
+  }
+
+  .second_section {
+    padding-top: 36vw;
+  }
+}
+
+@media (max-width: 956px) {
+
   .first_section,
-  .second_section,
-  .third_section,
-  .fifth_section,
-  .fourth_section {
+  .fifth_section {
     height: auto;
     padding-top: 20px;
+    padding-bottom: 20px;
   }
+
   .intro {
     float: none;
     position: relative;
-    bottom: 0;
+    flex-direction: column;
+    top: 0;
     left: 0;
-    width: 100%;
-  }
-  .content {
-    margin-bottom: 0px;
-    margin-top: 0px;
-    column-gap: 20px;
+    width: 80%;
+    padding: 20px;
   }
 
-  .left {
-    width: 55%;
-    display: flex;
-    align-items: center;
-  }
-  .right {
-    font-size: 12px;
-    line-height: 25px;
-  }
 
-  .right p {
-    display: none;
-  }
-
-  .second_section,
-  .fourth_section {
-    background-color: #1a1b1a;
-    color: #f4f4f4;
-  }
-
-  .third_section,
   .fifth_section {
     background-color: #f4f4f4;
     color: #1a1b1a;
   }
 
-  .intro_text {
-    width: 20vw;
-    text-align: center;
-    font-size: 36px;
-    font-family: "Outfit";
-    padding: 20px 0px 30px 0px;
+  .intro_text,
+  .player,
+  .youtube_btn {
+    width: 100%;
+    margin: 10px 0;
+    font-size: 18px;
   }
 
-  .youtube_btn {
-    background-color: black;
-    color: #f4f4f4;
-    font-family: "Outfit";
-    font-size: 17px;
-    padding: 7px 14px;
-    border-radius: 20px;
-    margin-top: 30px;
-    transition: 0.3s ease;
+  .intro_text {
+    padding: 0;
   }
 
   .youtube_btn img {
@@ -311,18 +229,24 @@
   }
 
   .helm {
-    display: grid;
-    /* grid-template-columns: 1fr; */
-    column-gap: 30px;
-    margin: 7vw auto;
-    width: min-content;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
   }
 
-  .helm img {
-    width: 20vw;
+  .helm2 {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
   }
 
-  .fifth_section {
-    height: 54vw;
+  .second_section {
+    padding-top: 5vw;
+  }
+
+  .p {
+    margin: 0;
+  }
+
+  .star img {
+    display: none;
   }
 }

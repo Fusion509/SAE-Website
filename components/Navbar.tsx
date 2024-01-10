@@ -3,11 +3,12 @@ import Nav from "react-bootstrap/Nav";
 import Image from "next/image";
 import styles from "@/styles/navbar.module.css";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 function NavBar(props: { BgColor: string }) {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,6 +25,7 @@ function NavBar(props: { BgColor: string }) {
   }, []);
 
   const handleDropdownClick = () => {
+    setMenuOpen(!isMenuOpen);
     setShowDropdown(!showDropdown);
   };
 
@@ -33,8 +35,8 @@ function NavBar(props: { BgColor: string }) {
         props.BgColor === "black"
           ? styles.navbarBlack
           : props.BgColor === "white"
-          ? styles.navbarWhite
-          : ""
+            ? styles.navbarWhite
+            : ""
       }
     >
       <Link href="/">
@@ -44,8 +46,8 @@ function NavBar(props: { BgColor: string }) {
             props.BgColor === "black"
               ? "/images/SAEVectorWhite.svg"
               : props.BgColor === "white"
-              ? "/images/SAE.png"
-              : ""
+                ? "/images/SAE.png"
+                : ""
           }
           alt="SAE"
           width={150}
@@ -57,11 +59,13 @@ function NavBar(props: { BgColor: string }) {
         <div className={styles.hamburger} onClick={handleDropdownClick}>
           <img
             src={
-                props.BgColor === "black"
-                ? "/menu.svg"
-                : props.BgColor === "white"
-                ? "/menublack.svg"
-                : ""
+              isMenuOpen
+                ? '/close.svg'
+                : props.BgColor === 'black'
+                  ? '/menu.svg'
+                  : props.BgColor === 'white'
+                    ? '/menublack.svg'
+                    : ''
             }
             alt="menu"
           />
@@ -71,16 +75,28 @@ function NavBar(props: { BgColor: string }) {
           <Nav.Link href="/" className={`${styles.links} ${styles.navlinkltr}`}>
             Home
           </Nav.Link>
-          <Nav.Link href="/about" className={`${styles.links} ${styles.navlinkltr}`}>
+          <Nav.Link
+            href="/about"
+            className={`${styles.links} ${styles.navlinkltr}`}
+          >
             About
           </Nav.Link>
-          <Nav.Link href="/events" className={`${styles.links} ${styles.navlinkltr}`}>
+          <Nav.Link
+            href="/events"
+            className={`${styles.links} ${styles.navlinkltr}`}
+          >
             Events
           </Nav.Link>
-          <Nav.Link href="/blog" className={`${styles.links} ${styles.navlinkltr}`}>
+          {/* <Nav.Link
+            href="/blog"
+            className={`${styles.links} ${styles.navlinkltr}`}
+          >
             Blogs
-          </Nav.Link>
-          <Nav.Link href="/projects" className={`${styles.links} ${styles.navlinkltr}`}>
+          </Nav.Link> */}
+          <Nav.Link
+            href="/projects"
+            className={`${styles.links} ${styles.navlinkltr}`}
+          >
             Projects
           </Nav.Link>
         </div>
@@ -93,42 +109,80 @@ function NavBar(props: { BgColor: string }) {
         }}
         className={styles.signInBtn}
       >
-        Login
+        Trident
       </motion.button>
 
-      {isSmallScreen && showDropdown && (
-        <div className={styles.fullScreenOverlay} onClick={handleDropdownClick}>
-          <div className={styles.linkContainer}>
-            <Nav.Link href="/" className={`${styles.links} ${styles.navlinkltr}`}>
-              Home
-            </Nav.Link>
-            <Nav.Link href="/about" className={`${styles.links} ${styles.navlinkltr}`}>
-              About
-            </Nav.Link>
-            <Nav.Link href="/events" className={`${styles.links} ${styles.navlinkltr}`}>
-              Events
-            </Nav.Link>
-            <Nav.Link href="/blog" className={`${styles.links} ${styles.navlinkltr}`}>
-              Blogs
-            </Nav.Link>
-            <Nav.Link href="/projects" className={`${styles.links} ${styles.navlinkltr}`}>
-              Projects
-            </Nav.Link>
-          </div>
-          <motion.button
-            whileHover={{
-              scale: 1.1,
-              textShadow: "0px 0px 8px rgb(255,255,255)",
-            }}
-            className={styles.signInBtnhamburger}
+      <AnimatePresence>
+        {isSmallScreen && showDropdown && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "100%", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.7 }}
+            className={styles.fullScreenOverlay}
           >
-            Login
-          </motion.button>
-        </div>
-      )}
+            <div className={styles.linkContainer}>
+              <div className={styles.linkContainer}>
+                <Nav.Link href="/" className={`${styles.links} ${styles.navlinkltr}`}>
+                  <Image
+                    src={
+                      props.BgColor === "black"
+                        ? "/images/SAEVectorWhite.svg"
+                        : props.BgColor === "white"
+                          ? "/images/SAE.png"
+                          : ""
+                    }
+                    alt="SAE"
+                    width={150}
+                    height={50}
+                  />
+                </Nav.Link>
+                <Nav.Link
+                  href="/"
+                  className={`${styles.links} ${styles.navlinkltr}`}
+                >
+                  Home
+                </Nav.Link>
+                <Nav.Link
+                  href="/about"
+                  className={`${styles.links} ${styles.navlinkltr}`}
+                >
+                  About
+                </Nav.Link>
+                <Nav.Link
+                  href="/events"
+                  className={`${styles.links} ${styles.navlinkltr}`}
+                >
+                  Events
+                </Nav.Link>
+                {/* <Nav.Link
+              href="/blog"
+              className={`${styles.links} ${styles.navlinkltr}`}
+            >
+              Blogs
+            </Nav.Link> */}
+                <Nav.Link
+                  href="/projects"
+                  className={`${styles.links} ${styles.navlinkltr}`}
+                >
+                  Projects
+                </Nav.Link>
+                <motion.button
+                  whileHover={{
+                    scale: 1.1,
+                    textShadow: "0px 0px 8px rgb(255,255,255)",
+                  }}
+                  className={styles.signInBtnhamburger}
+                >
+                  Trident
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 
 export default NavBar;
-

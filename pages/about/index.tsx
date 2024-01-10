@@ -1,6 +1,8 @@
 import styles from "@/styles/about.module.css";
 import Navbar from "@/components/Navbar";
 import ReactPlayer from "react-player";
+import MemberCard from "./memberCard";
+import AboutTeam from "./aboutTeam";
 export default function About() {
   return (
     <>
@@ -9,9 +11,7 @@ export default function About() {
         <div className={styles.about}>
           <h1>About Us..</h1>
           <div className={styles.desc}>
-            SAE(Society of Automotive Engineers) aims to give a platform to
-            people who wish to learn about and build automobiles. Our teams take
-            part in various RC and automotive events all round the year....
+            The SAE Collegiate Club at the Indian Institute of Technology (IIT) BHU is a dynamic and vibrant community of engineering enthusiasts dedicated to all things automotive. Our club serves as a melting pot of creativity, innovation, and engineering excellence, providing a platform for students to immerse themselves in the thrilling world of automobiles.
           </div>
           <hr />
         </div>
@@ -21,15 +21,12 @@ export default function About() {
         <div className={styles.intro}>
           <div className={styles.player}>
             <ReactPlayer
-              url="https://www.youtube.com/watch?v=Y-fVS9FSoXw"
+              url="https://youtu.be/FCpxpfrwaQs?si=xkxNl9p7Gql7hnuw"
               height="100%"
               width="100%"
             />
           </div>
-          <div className={styles.intro_text}>
-            Watch Our Intro <br />
-            Video
-            <br />
+          <div className={styles.intro_text}>Watch Our Intro Video<br></br>
             <button className={styles.youtube_btn}>
               Watch on &nbsp;
               <img alt="youtube" src="/images/feYoutube2.png" />
@@ -37,59 +34,63 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className={styles.second_section}>
-        <h1>Team Trident</h1>
-        <div className={styles.content}>
-          <div className={styles.left}>
-            <img src="/images/TeamTrident.png" alt="team_trident" />
-          </div>
-          <div className={styles.right}>
-            Team Trident is a group of IIT BHU engineering students preparing
-            for Formula Bharat competition. They are designing a
-            high-performance race car using advanced software tools and
-            manufacturing techniques. The team is focusing on safety and
-            reliability while rigorously testing their designs.
-          </div>
+      <div className="about_teams">
+        <div className={styles.second_section}>
+          <AboutTeam
+            aboutText="Team Trident, a distinguished division within the SAE Collegiate Club at IIT BHU, has a rich legacy of innovation and engineering prowess. Their journey epitomizes teamwork, dedication, and a relentless pursuit of perfection.
+          "
+            heading="Team Trident"
+            img="/images/testimg.png"
+            img2="/images/testimg.png"
+          />
         </div>
-      </div>
-      <div className={styles.third_section}>
-        <h1>Team Rowbotics</h1>
-        <div className={styles.content}>
-          <div className={styles.right}>
-            Team Rowbotics is a group of talented engineering students from IIT
-            BHU who are participating in an upcoming RC boat competition. Their
-            goal is to design an autonomous boat that can efficiently navigate
-            through water and complete tasks. The team is utilizing advanced
-            computer-aided design software and cutting-edge manufacturing
-            techniques to build their boat.
-          </div>
-          <div className={styles.left}>
-            <img src="/images/TeamTrident.png" alt="team_trident" />
-          </div>
-        </div>
-      </div>
-      <div className={styles.fourth_section}>
-        <h1>Team RC Car</h1>
-        <div className={styles.content}>
-          <div className={styles.left}>
-            <img src="/images/TeamTrident.png" alt="team_trident" />
-          </div>
-          <div className={styles.right}>
-            Team RC Car, which consists of engineering students from IIT BHU, is
-            getting ready for a track racing competition. Their objective is to
-            develop a quick and effective car that can navigate the track with
-            precision. The team is using advanced software tools for designing
-            and up-to-date manufacturing techniques for building the car
-            components.
-          </div>
+        <div className={styles.third_section}>
+          <AboutTeam
+            aboutText="The RC Car Team at IIT BHU, a subunit of the SAE Collegiate Club, has evolved from its roots in building remote-controlled cars to embracing the forefront of technological innovation – automation.
+          "
+            heading="Team RC Car"
+            img="/images/testimg.png"
+            img2="/images/testimg.png"
+          />
         </div>
       </div>
       <div className={styles.fifth_section}>
-        <h1>Our Helm</h1>
+        <div className={styles.heading_box}>
+          <div className={styles.fifth_section_heading}>Our Team</div>
+        </div>
         <div className={styles.helm}>
-          <img src="/images/Helm1.png" alt="helm1" />
-          <img src="/images/Helm2.png" alt="helm1" />
-          <img src="/images/Helm3.png" alt="helm1" />
+          <MemberCard
+            imageSrc="/images/AmanSrivastava.png"
+            memberName="Aman Srivastava"
+            memberDesignation="Jt. Secretary"
+          />
+          <MemberCard
+            imageSrc="/images/Shruti.jpg"
+            memberName="Shruti Jha"
+            memberDesignation="Secretary"
+          />
+          <MemberCard
+            imageSrc="/images/Anshuman.jpeg"
+            memberName="Anshuman Chaurasia"
+            memberDesignation="Jt. Secretary"
+          />
+        </div>
+        <div className={styles.helm2}>
+          <MemberCard
+            imageSrc="/images/NisthaJain.jpeg"
+            memberName="Nistha Jain"
+            memberDesignation="Design Head"
+          />
+          <MemberCard
+            imageSrc="/images/SaiyamJain.png"
+            memberName="Saiyam Jain"
+            memberDesignation="Web Team Head"
+          />
+          <MemberCard
+            imageSrc="/images/PaltiSumasri.jpeg"
+            memberName="Palti Sumasri"
+            memberDesignation="Social Content Head"
+          />
         </div>
       </div>
     </>
